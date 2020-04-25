@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Repository;
+namespace Repository;
 
-use App\app\Model\Student;
-use app\Interfaces\Repository\StudentRepositoryInterface;
+use Interfaces\Repository\StudentRepositoryInterface;
+use Model\Student;
 
 class StudentRepositoryImpl implements StudentRepositoryInterface
 {

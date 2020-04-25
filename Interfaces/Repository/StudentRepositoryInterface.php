@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Interfaces\Repository;
+namespace Interfaces\Repository;
 
-use App\app\Model\Student;
+use Model\Student;
 
 interface StudentRepositoryInterface
 {

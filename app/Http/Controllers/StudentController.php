@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use app\Interfaces\Service\StudentServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Interfaces\Service\StudentServiceInterface;
 use stdClass;
 
 class StudentController extends Controller
@@ -15,13 +15,14 @@ class StudentController extends Controller
 
     private $service;
 
-    function __construct(StudentServiceInterface $service)
+    function __construct(Stun $service)
     {
         $this->service = $service;
     }
 
     function insert(Request $req)
     {
+        var_dump($req);die;
        $data = new stdClass();
        $data->name = $req->input('name');
        $data->birth = $req->input('birth');

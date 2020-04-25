@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Repository;
+namespace Service;
 
-use App\app\Model\Student;
-use app\Interfaces\Repository\StudentRepositoryInterface;
-use app\Interfaces\Service\StudentServiceInterface;
+use Interfaces\Repository\StudentRepositoryInterface;
+use Interfaces\Service\StudentServiceInterface;
+use Model\Student;
 use stdClass;
 
 class StudentServiceImpl implements StudentServiceInterface

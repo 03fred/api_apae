@@ -1,6 +1,6 @@
 <?php
 
-namespace App\app\Model;
+namespace Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +21,7 @@ class Student extends Model
         'number_sus',
         'status_registered'
     ];
-   
+
     protected $primaryKey = 'id';
     public $timestamps = false;
 }
