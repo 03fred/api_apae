@@ -36,7 +36,7 @@ class Frequencies extends Model
      */
     public function class()
     {
-        return $this->belongsTo('App\Class');
+        return $this->belongsTo('Model\Class');
     }
 
     /**
@@ -44,7 +44,7 @@ class Frequencies extends Model
      */
     public function discipline()
     {
-        return $this->belongsTo('App\Discipline');
+        return $this->belongsTo('Model\Discipline');
     }
 
     /**
@@ -52,6 +52,6 @@ class Frequencies extends Model
      */
     public function student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('Model\Student');
     }
 }

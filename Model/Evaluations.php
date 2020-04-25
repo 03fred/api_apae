@@ -35,7 +35,7 @@ class Evaluations extends Model
      */
     public function student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('Model\Student');
     }
 
     /**
@@ -43,6 +43,6 @@ class Evaluations extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Model\User');
     }
 }

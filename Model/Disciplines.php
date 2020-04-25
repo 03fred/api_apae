@@ -31,7 +31,7 @@ class Disciplines extends Model
      */
     public function frequencies()
     {
-        return $this->hasMany('App\Frequency');
+        return $this->hasMany('Model\Frequency');
     }
 
     /**
@@ -39,6 +39,6 @@ class Disciplines extends Model
      */
     public function teachersDisciplines()
     {
-        return $this->hasMany('App\TeachersDiscipline');
+        return $this->hasMany('Model\TeachersDiscipline');
     }
 }

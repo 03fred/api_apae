@@ -24,7 +24,7 @@ class CidsStudents extends Model
      */
     public function cid()
     {
-        return $this->belongsTo('App\Cid');
+        return $this->belongsTo('Model\Cid');
     }
 
     /**
@@ -32,6 +32,6 @@ class CidsStudents extends Model
      */
     public function student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('Model\Student');
     }
 }

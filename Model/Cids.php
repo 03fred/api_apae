@@ -31,6 +31,6 @@ class Cids extends Model
      */
     public function cidsStudents()
     {
-        return $this->hasMany('App\CidsStudent');
+        return $this->hasMany('Model\CidsStudent');
     }
 }

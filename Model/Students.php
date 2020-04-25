@@ -43,7 +43,7 @@ class Students extends Model
      */
     public function cidsStudents()
     {
-        return $this->hasMany('App\CidsStudent');
+        return $this->hasMany('Model\CidsStudent');
     }
 
     /**
@@ -51,7 +51,7 @@ class Students extends Model
      */
     public function evaluations()
     {
-        return $this->hasMany('App\Evaluation');
+        return $this->hasMany('Model\Evaluation');
     }
 
     /**
@@ -59,7 +59,7 @@ class Students extends Model
      */
     public function frequencies()
     {
-        return $this->hasMany('App\Frequency');
+        return $this->hasMany('Model\Frequency');
     }
 
     /**
@@ -67,7 +67,7 @@ class Students extends Model
      */
     public function medicinesStudents()
     {
-        return $this->hasMany('App\MedicinesStudent');
+        return $this->hasMany('Model\MedicinesStudent');
     }
 
     /**
@@ -75,6 +75,6 @@ class Students extends Model
      */
     public function studentsClasses()
     {
-        return $this->hasMany('App\StudentsClass');
+        return $this->hasMany('Model\StudentsClass');
     }
 }

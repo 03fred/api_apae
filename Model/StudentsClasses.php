@@ -24,7 +24,7 @@ class StudentsClasses extends Model
      */
     public function class()
     {
-        return $this->belongsTo('App\Class');
+        return $this->belongsTo('Model\Class');
     }
 
     /**
@@ -32,6 +32,6 @@ class StudentsClasses extends Model
      */
     public function student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('Model\Student');
     }
 }

@@ -35,7 +35,7 @@ class Classes extends Model
      */
     public function frequencies()
     {
-        return $this->hasMany('App\Frequency');
+        return $this->hasMany('Model\Frequency');
     }
 
     /**
@@ -43,6 +43,6 @@ class Classes extends Model
      */
     public function studentsClasses()
     {
-        return $this->hasMany('App\StudentsClass');
+        return $this->hasMany('Model\StudentsClass');
     }
 }

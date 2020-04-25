@@ -40,7 +40,7 @@ class Users extends Model
      */
     public function profile()
     {
-        return $this->belongsTo('App\Profile');
+        return $this->belongsTo('Model\Profile');
     }
 
     /**
@@ -48,7 +48,7 @@ class Users extends Model
      */
     public function evaluations()
     {
-        return $this->hasMany('App\Evaluation');
+        return $this->hasMany('Model\Evaluation');
     }
 
     /**
@@ -56,6 +56,6 @@ class Users extends Model
      */
     public function teachersDisciplines()
     {
-        return $this->hasMany('App\TeachersDiscipline');
+        return $this->hasMany('Model\TeachersDiscipline');
     }
 }

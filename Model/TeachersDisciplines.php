@@ -34,7 +34,7 @@ class TeachersDisciplines extends Model
      */
     public function discipline()
     {
-        return $this->belongsTo('App\Discipline');
+        return $this->belongsTo('Model\Discipline');
     }
 
     /**
@@ -42,6 +42,6 @@ class TeachersDisciplines extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Model\User');
     }
 }

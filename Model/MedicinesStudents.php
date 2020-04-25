@@ -34,7 +34,7 @@ class MedicinesStudents extends Model
      */
     public function medicine()
     {
-        return $this->belongsTo('App\Medicine');
+        return $this->belongsTo('Model\Medicine');
     }
 
     /**
@@ -42,6 +42,6 @@ class MedicinesStudents extends Model
      */
     public function student()
     {
-        return $this->belongsTo('App\Student');
+        return $this->belongsTo('Model\Student');
     }
 }

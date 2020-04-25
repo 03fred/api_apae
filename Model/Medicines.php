@@ -30,6 +30,6 @@ class Medicines extends Model
      */
     public function medicinesStudents()
     {
-        return $this->hasMany('App\MedicinesStudent');
+        return $this->hasMany('Model\MedicinesStudent');
     }
 }
