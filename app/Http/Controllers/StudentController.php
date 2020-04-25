@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Interfaces\Service\StudentServiceInterface;
 use stdClass;
 
 class StudentController extends Controller
@@ -14,11 +13,6 @@ class StudentController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     private $service;
-
-    function __construct(Stun $service)
-    {
-        $this->service = $service;
-    }
 
     function insert(Request $req)
     {
