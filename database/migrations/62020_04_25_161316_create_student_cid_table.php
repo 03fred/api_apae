@@ -13,11 +13,12 @@ class CreateStudentCidTable extends Migration
      */
     public function up()
     {
-        Schema::create('cid_student', function (Blueprint $table) {
-            $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('cid_id')->unsigned();
-            $table->foreign('cid_id')->references('id_cid')->on('cid')->onDelete('cascade');
-            $table->foreign('student_id')->references('id_student')->on('student')->onDelete('cascade');
+        Schema::create('cids_students', function (Blueprint $table) {
+            $table->foreignId('student_id');
+            $table->foreignId('cid_id');
+
+            $table->foreign('cid_id')->references('id')->on('cids')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateStudentCidTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_cid');
+        Schema::dropIfExists('cids_students');
     }
 }

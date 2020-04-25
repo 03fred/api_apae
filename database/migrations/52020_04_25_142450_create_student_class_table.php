@@ -13,11 +13,11 @@ class CreateStudentclassTable extends Migration
      */
     public function up()
     {
-        Schema::create('student_class', function (Blueprint $table) {
-            $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('class_id')->unsigned();
-            $table->foreign('class_id')->references('id_class')->on('class')->onDelete('cascade');
-            $table->foreign('student_id')->references('id_student')->on('student')->onDelete('cascade');
+        Schema::create('students_classes', function (Blueprint $table) {
+            $table->foreignId('student_id');
+            $table->foreignId('class_id');
+            $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateStudentclassTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_class');
+        Schema::dropIfExists('students_classes');
     }
 }

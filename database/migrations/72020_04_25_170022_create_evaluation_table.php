@@ -13,15 +13,17 @@ class CreateEvaluationTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluation', function (Blueprint $table) {
-            $table->bigIncrements('id_evaluation');
+        Schema::create('evaluations', function (Blueprint $table) {
+            $table->id();
+
             $table->date('register');
+
             $table->integer('note_evaluation');
             $table->string('note');
-            $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('student_id')->references('id_student')->on('student')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreignId('student_id');
+            $table->foreignId('user_id');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ class CreateEvaluationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evaluation');
+        Schema::dropIfExists('evaluations');
     }
 }
