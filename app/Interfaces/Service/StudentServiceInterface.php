@@ -1,6 +1,6 @@
 <?php
 
-namespace Interfaces\Service;
+namespace App\Interfaces\Service;
 
 use stdClass;
 

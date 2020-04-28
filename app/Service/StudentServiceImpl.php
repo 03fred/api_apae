@@ -1,12 +1,12 @@
 <?php
 
-namespace Service;
+namespace App\Service;
 
-use Interfaces\Service\StudentServiceInterface;
+use App\Interfaces\Service\StudentServiceInterface;
 use Model\Students;
 use stdClass;
 
-class StudentServiceImpl
+class StudentServiceImpl implements StudentServiceInterface
 {
 
     private $repository;
@@ -28,6 +28,6 @@ class StudentServiceImpl
         $student->phone = $data->phone;
         $student->number_sus = $data->numberSus;
         $student->status_register = true;
-        // $this->repository->save($student);
+        $this->repository->save($student);
     }
 }
