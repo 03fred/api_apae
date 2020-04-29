@@ -1,10 +1,10 @@
 <?php
 
-namespace Interfaces\Repository;
+namespace App\Interfaces\Repository;
 
-use Model\Student;
+use App\Model\Students;
 
 interface StudentRepositoryInterface
 {
-    public function save(Student $student);
+    public function save(Students $student);
 }

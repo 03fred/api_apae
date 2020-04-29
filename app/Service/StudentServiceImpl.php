@@ -3,7 +3,8 @@
 namespace App\Service;
 
 use App\Interfaces\Service\StudentServiceInterface;
-use Model\Students;
+use App\Model\Students;
+use App\Interfaces\Repository\StudentRepositoryInterface;
 use stdClass;
 
 class StudentServiceImpl implements StudentServiceInterface
@@ -11,23 +12,24 @@ class StudentServiceImpl implements StudentServiceInterface
 
     private $repository;
 
-    // public function __construct(StudentRepositoryInterface $repository)
-    // {
-    //     $this->repository = $repository;
-    // }
+    public function __construct(StudentRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
 
     public function save(stdClass $data)
     {
-        var_dump($data);
         $student = new Students();
         $student->name = $data->name;
         $student->birth = $data->birth;
-        $student->name_mother = $data->nameMother;
-        $student->name_father = $data->nameFather;
+        $student->mother_name = $data->nameMother;
+        $student->father_name = $data->nameFather;
         $student->cellphone = $data->cellPhone;
-        $student->phone = $data->phone;
-        $student->number_sus = $data->numberSus;
-        $student->status_register = true;
+        $student->telephone = $data->phone;
+        $student->sus_numer = $data->numberSus;
+        $student->registered = true;
+        $student->address = $data->address;
+        $student->record_number = $data->recordNumber;
         $this->repository->save($student);
     }
 }

@@ -27,9 +27,11 @@ class StudentController extends Controller
        $data->nameMother = $req->input('nameMother');
        $data->nameFather = $req->input('nameFather');
        $data->address = $req->input('address');
-       $data->cellphone = $req->input('cellphone');
+       $data->cellPhone = $req->input('cellPhone');
        $data->phone = $req->input('phone');
        $data->numberSus = $req->input('numberSus');
+       $data->recordNumber = $req->input('recordNumber');
+
        $this->service->save($data);
     }
    
