@@ -19,4 +19,9 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
     {
         return $student->save();
     }
+
+    public function findFilter($field, $value, $page)
+    {
+        return $this->student::where($field, 'LIKE', $value . '%')->paginate($page);
+    }
 }

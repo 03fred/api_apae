@@ -32,4 +32,9 @@ class StudentServiceImpl implements StudentServiceInterface
         $student->record_number = $data->recordNumber;
         $this->repository->save($student);
     }
+
+    public function findFilter($field, $value, $page)
+    {
+        return $this->repository->findFilter($field, $value, $page);
+    }
 }

@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::post('/student', 'StudentController@insert');
+Route::get('/student', 'StudentController@findFilter');

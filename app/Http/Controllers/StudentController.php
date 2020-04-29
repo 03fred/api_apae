@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Interfaces\Service\StudentServiceInterface;
-use stdClass;
+use Illuminate\Http\Response;
 
 class StudentController extends Controller
 {
@@ -19,20 +19,22 @@ class StudentController extends Controller
     {
         $this->service = $service;
     }
-    function insert(Request $req)
+    function insert(Request $req, Response  $res)
     {
-       $data = new stdClass();
-       $data->name = $req->input('name');
-       $data->birth = $req->input('birth');
-       $data->nameMother = $req->input('nameMother');
-       $data->nameFather = $req->input('nameFather');
-       $data->address = $req->input('address');
-       $data->cellPhone = $req->input('cellPhone');
-       $data->phone = $req->input('phone');
-       $data->numberSus = $req->input('numberSus');
-       $data->recordNumber = $req->input('recordNumber');
+        $data = (object) $req->all();
+        $this->service->save($data);
 
-       $this->service->save($data);
+        return $res->setStatusCode(201);
     }
-   
+
+    public function findFilter(Request $req, Response  $res)
+    {
+        $field = $req->query('field');
+        $value =  $req->query('value');
+        $page = $req->query('page');
+
+        $data = $this->service->findFilter($field, $value, $page);
+
+         return response(array('data' => json_encode($data)), 200);
+    }
 }
