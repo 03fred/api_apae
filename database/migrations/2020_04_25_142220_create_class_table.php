@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCidTable extends Migration
+class CreateclassTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCidTable extends Migration
      */
     public function up()
     {
-        Schema::create('cid', function (Blueprint $table) {
-            $table->bigIncrements('id_cid');
-            $table->bigInteger('number_cid');
-            $table->string('name_sickness');
+        Schema::create('classes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('classroom');
+            $table->string('name');
+            $table->date('start');
+            $table->date('end');
+            $table->string('period');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCidTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cid');
+        Schema::dropIfExists('classes');
     }
 }

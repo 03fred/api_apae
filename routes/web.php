@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    var_dump(csrf_token());
     return view('welcome');
 });
 
-Route::get('/student', 'StudentController@insert');
+Route::post('/student', 'StudentController@insert');
+Route::get('/student', 'StudentController@findFilter');

@@ -13,9 +13,9 @@ class CreateDisciplineTable extends Migration
      */
     public function up()
     {
-        Schema::create('discipline', function (Blueprint $table) {
-            $table->bigIncrements('id_discipline');
-            $table->string('name_discipline');
+        Schema::create('disciplines', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateDisciplineTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('discipline');
+        Schema::dropIfExists('disciplines');
     }
 }

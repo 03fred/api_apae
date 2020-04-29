@@ -14,12 +14,20 @@ class CreateMedicinesStudentsTable extends Migration
     public function up()
     {
         Schema::create('medicines_students', function (Blueprint $table) {
-            $table->bigInteger('medicine_id')->unsigned();
-            $table->bigInteger('student_id')->unsigned();
-            $table->string('posologia');
+            $table->id();
+
+            $table->foreignId('medicine_id');
+
+            $table->foreignId('student_id');
+
+            $table->string('dosage');
+
             $table->string('medication_hour');
-            $table->foreign('medicine_id')->references('id_medicine')->on('medicines')->onDelete('cascade');
-            $table->foreign('student_id')->references('id_student')->on('student')->onDelete('cascade');
+
+            $table->foreign('medicine_id')->references('id')->on('medicines')->onDelete('cascade');
+
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

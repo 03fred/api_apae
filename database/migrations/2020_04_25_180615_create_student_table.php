@@ -13,17 +13,25 @@ class CreateStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('student', function (Blueprint $table) {
-            $table->bigIncrements('id_student');
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
+
             $table->date('birth');
-            $table->string('name_mother');
-            $table->string('name_father');
+
+            $table->string('mother_name');
+            $table->string('father_name');
+
             $table->string('address');
+
             $table->string('cellphone');
-            $table->string('phone');
-            $table->integer('number_sus');
-            $table->boolean('status_registered');
+            $table->string('telephone');
+
+            $table->string('sus_numer');
+            $table->string('record_number');
+
+            $table->boolean('registered');
+
             $table->timestamps();
         });
     }
@@ -35,6 +43,6 @@ class CreateStudentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student');
+        Schema::dropIfExists('students');
     }
 }
