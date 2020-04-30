@@ -8,20 +8,31 @@ use App\Interfaces\Repository\StudentRepositoryInterface;
 class StudentRepositoryImpl implements StudentRepositoryInterface
 {
 
-    private $student;
+    private $model;
 
-    public function __construct(Students $student)
+    public function __construct(Students $model)
     {
-        $this->student = $student;
+        $this->model = $model;
     }
 
-    public function save(Students $student)
+    public function save(Students $model)
     {
-        return $student->save();
+        return $model->save();
     }
 
     public function findFilter($field, $value, $page)
     {
-        return $this->student::where($field, 'LIKE', $value . '%')->paginate($page);
+        return $this->model::where($field, 'LIKE', $value . '%')->paginate($page);
+    }
+
+    public function findById($id)
+    {
+        return $this->model->where('id', '=', $id)->first();
+    }
+
+    public function inativeStudent($id)
+    {
+        return $this->model->where('id', $id)
+            ->update(['register' => false]);
     }
 }

@@ -20,3 +20,9 @@ Route::get('/', function () {
 
 Route::post('/student', 'StudentController@insert');
 Route::get('/student', 'StudentController@findFilter');
+
+Route::post('/cid', 'CidController@insert');
+Route::get('/cid', 'CidController@findFilter');
+
+Route::post('/medicine', 'MedicineController@insert');
+Route::get('/medicine', 'MedicineController@findFilter');
