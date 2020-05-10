@@ -13,16 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    var_dump(csrf_token());
-    return view('welcome');
-});
-
-Route::post('/student', 'StudentController@insert');
-Route::get('/student', 'StudentController@findFilter');
-
-Route::post('/cid', 'CidController@insert');
-Route::get('/cid', 'CidController@findFilter');
-
-Route::post('/medicine', 'MedicineController@insert');
-Route::get('/medicine', 'MedicineController@findFilter');
+// Route::get('/', function () {
+//     var_dump(csrf_token());
+//     return view('welcome');
+// });
