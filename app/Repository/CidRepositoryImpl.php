@@ -2,20 +2,20 @@
 
 namespace App\Repository;
 
-use App\Model\Students;
-use App\Interfaces\Repository\StudentRepositoryInterface;
+use App\Model\Cids;
+use App\Interfaces\Repository\CidRepositoryInterface;
 
-class StudentRepositoryImpl implements StudentRepositoryInterface
+class CidRepositoryImpl implements CidRepositoryInterface
 {
 
     private $model;
 
-    public function __construct(Students $model)
+    public function __construct(Cids $model)
     {
         $this->model = $model;
     }
 
-    public function save(Students $model)
+    public function save(Cids $model)
     {
         return $model->save();
     }
@@ -30,7 +30,7 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
         return $this->model->where('id', '=', $id)->first();
     }
 
-    public function inativeStudent($id)
+    public function inativeCid($id)
     {
         return $this->model->where('id', $id)
             ->update(['register' => false]);

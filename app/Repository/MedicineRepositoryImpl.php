@@ -2,20 +2,20 @@
 
 namespace App\Repository;
 
-use App\Model\Students;
-use App\Interfaces\Repository\StudentRepositoryInterface;
+use App\Model\Medicines;
+use App\Interfaces\Repository\MedicineRepositoryInterface;
 
-class StudentRepositoryImpl implements StudentRepositoryInterface
+class MedicineRepositoryImpl implements MedicineRepositoryInterface
 {
 
     private $model;
 
-    public function __construct(Students $model)
+    public function __construct(Medicines $model)
     {
         $this->model = $model;
     }
 
-    public function save(Students $model)
+    public function save(Medicines $model)
     {
         return $model->save();
     }
@@ -30,7 +30,7 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
         return $this->model->where('id', '=', $id)->first();
     }
 
-    public function inativeStudent($id)
+    public function inativeMedicine($id)
     {
         return $this->model->where('id', $id)
             ->update(['register' => false]);

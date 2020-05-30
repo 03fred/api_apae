@@ -2,20 +2,20 @@
 
 namespace App\Repository;
 
-use App\Model\Students;
-use App\Interfaces\Repository\StudentRepositoryInterface;
+use App\Model\Users;
+use App\Interfaces\Repository\UserRepositoryInterface;
 
-class StudentRepositoryImpl implements StudentRepositoryInterface
+class UserRepositoryImpl implements UserRepositoryInterface
 {
 
     private $model;
 
-    public function __construct(Students $model)
+    public function __construct(Users $model)
     {
         $this->model = $model;
     }
 
-    public function save(Students $model)
+    public function save(Users $model)
     {
         return $model->save();
     }
@@ -30,7 +30,7 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
         return $this->model->where('id', '=', $id)->first();
     }
 
-    public function inativeStudent($id)
+    public function inativeUser($id)
     {
         return $this->model->where('id', $id)
             ->update(['register' => false]);

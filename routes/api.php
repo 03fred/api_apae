@@ -14,7 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::group(['middleware' => ['apiJwt']], function () {
+    Route::post('/student', 'Api\\StudentController@insert');
+    Route::get('/student', 'Api\\StudentController@findFilter');
+
+    Route::post('/cid', 'Api\\CidController@insert');
+    Route::get('/cid', 'Api\\CidController@findFilter');
+
+    Route::post('/medicine', 'Api\\MedicineController@insert');
+    Route::get('/medicine', 'Api\\MedicineController@findFilter');
+
+    Route::get('/user', 'Api\\UserController@findFilter');
 });
 
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::post('login', 'Api\\AuthController@login');
+});
