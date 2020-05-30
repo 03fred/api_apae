@@ -12,5 +12,6 @@ class Repository extends ServiceProvider
         $this->app->bind('App\Interfaces\Repository\StudentRepositoryInterface', 'App\Repository\StudentRepositoryImpl');
         $this->app->bind('App\Interfaces\Repository\CidRepositoryInterface', 'App\Repository\CidRepositoryImpl');
         $this->app->bind('App\Interfaces\Repository\MedicineRepositoryInterface', 'App\Repository\MedicineRepositoryImpl');
+        $this->app->bind('App\Interfaces\Repository\UserRepositoryInterface', 'App\Repository\UserRepositoryImpl');
     }
 }

@@ -12,5 +12,6 @@ class Service extends ServiceProvider
         $this->app->bind('App\Interfaces\Service\StudentServiceInterface', 'App\Service\StudentServiceImpl');
         $this->app->bind('App\Interfaces\Service\CidServiceInterface', 'App\Service\CidServiceImpl');
         $this->app->bind('App\Interfaces\Service\MedicineServiceInterface', 'App\Service\MedicineServiceImpl');
+        $this->app->bind('App\Interfaces\Service\UserServiceInterface', 'App\Service\UserServiceImpl');
     }
 }
