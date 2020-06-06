@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\Helpers;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Service\StudentServiceInterface;
 use Illuminate\Http\Request;
@@ -39,17 +40,14 @@ class StudentController extends Controller
      */
     public function insert(Request $request)
     {
-        $rules  = [
-            'name' => 'required'
-        ];
 
-        $validator = Validator::make($request->all(), $rules);
+        $fieldValidations = $this->returnValidation();
+
+        $validator = Validator::make($request->all(), $fieldValidations, Helpers::returnMessageFieldValidation());
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
         }
-
-    
 
         $data = (object) $request->all();
 
@@ -90,5 +88,19 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function returnValidation(): array
+    {
+        return  [
+            'name' => 'required|max:255',
+            'birth' => 'required|max:10',
+            'nameMother' => 'required|max:255',
+            'nameFather' => 'required|max:255',
+            'address' => 'required|max:255',
+            'cellPhone' => 'required|max:15',
+            'numberSus' => 'required|max:255',
+            'recordNumber' => 'required|max:10'
+        ];
     }
 }
