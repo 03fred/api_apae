@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Service\StudentServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
-
-
     private $service;
 
     public function __construct(StudentServiceInterface $service)
@@ -30,7 +29,7 @@ class StudentController extends Controller
 
         $data = $this->service->findFilter($field, $value, $page);
 
-         return response()->json($data);
+        return response()->json($data);
     }
     /**
      * Store a newly created resource in storage.
@@ -40,7 +39,20 @@ class StudentController extends Controller
      */
     public function insert(Request $request)
     {
+        $rules  = [
+            'name' => 'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 400);
+        }
+
+    
+
         $data = (object) $request->all();
+
         $this->service->save($data);
 
         return response()->json(['success'], 201);
