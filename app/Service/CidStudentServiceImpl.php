@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Interfaces\Repository\CidsStudentRepositoryInterface;
+use App\Interfaces\Repository\CidStudentRepositoryInterface;
 use App\Interfaces\Service\CidStundentServiceInterface;
 use Model\CidsStudents;
 
@@ -11,7 +11,7 @@ class CidStudentServiceImpl implements CidStundentServiceInterface
 
     private $repository;
 
-    public function __construct(CidsStudentRepositoryInterface $repository)
+    public function __construct(CidStudentRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
