@@ -2,7 +2,7 @@
 
 namespace App\Interfaces\Service;
 
-use Model\CidsStudents;
+use App\Model\CidsStudents;
 
 interface CidStundentServiceInterface
 {

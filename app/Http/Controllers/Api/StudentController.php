@@ -100,7 +100,9 @@ class StudentController extends Controller
             'address' => 'required|max:255',
             'cellPhone' => 'required|max:15',
             'numberSus' => 'required|max:255',
-            'recordNumber' => 'required|max:10'
+            'recordNumber' => 'required|max:10',
+            'cid' => 'required',
+            'medicine' => 'required'
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Interfaces\Repository\CidStudentRepositoryInterface;
 use App\Interfaces\Service\CidStundentServiceInterface;
-use Model\CidsStudents;
+use App\Model\CidsStudents;
 
 class CidStudentServiceImpl implements CidStundentServiceInterface
 {

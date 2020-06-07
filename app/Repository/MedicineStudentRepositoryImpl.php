@@ -2,11 +2,12 @@
 
 namespace App\Repository;
 
-use App\Interfaces\Repository\MedicinesStudentRepositoryInterface;
+use App\Interfaces\Repository\MedicineStudentRepositoryInterface;
 use App\Model\MedicinesStudents;
 
-class MedicineStudentRepositoryImpl implements MedicinesStudentRepositoryInterface
+class MedicineStudentRepositoryImpl implements MedicineStudentRepositoryInterface
 {
+
 
     public function __construct(MedicinesStudents $model)
     {

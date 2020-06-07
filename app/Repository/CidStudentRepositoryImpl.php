@@ -2,15 +2,15 @@
 
 namespace App\Repository;
 
-use App\Interfaces\Repository\CidsStudentRepositoryInterface;
-use Model\CidsStudents;
+use App\Interfaces\Repository\CidStudentRepositoryInterface;
+use App\Model\CidsStudents;
 
-class CidStudentRepositoryImpl implements CidsStudentRepositoryInterface
+class CidStudentRepositoryImpl implements CidStudentRepositoryInterface
 {
 
-    public function __construct(CidsStudents $model)
+    public function __construct()
     {
-        $this->model = $model;
+       
     }
 
     public function save(CidsStudents $model)
