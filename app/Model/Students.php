@@ -36,7 +36,20 @@ class Students extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'birth', 'mother_name', 'father_name', 'address', 'cellphone', 'telephone', 'sus_numer', 'record_number', 'registered', 'created_at', 'updated_at'];
+    protected $fillable = [
+        'name',
+        'birth',
+        'mother_name',
+        'father_name',
+        'address',
+        'cellphone',
+        'telephone',
+        'sus_numer',
+        'record_number',
+        'registered',
+        'created_at',
+        'updated_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
