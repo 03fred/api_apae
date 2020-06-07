@@ -3,33 +3,55 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
 Route::group(['middleware' => ['apiJwt']], function () {
-    Route::post('/student', 'Api\\StudentController@insert');
-    Route::get('/student', 'Api\\StudentController@findFilter');
 
-    Route::post('/cid', 'Api\\CidController@insert');
-    Route::get('/cid', 'Api\\CidController@findFilter');
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'student'
+    ], function () {
+        Route::post('', 'Api\\StudentController@insert');
+        Route::get('', 'Api\\StudentController@findFilter');
+    });
 
-    Route::post('/medicine', 'Api\\MedicineController@insert');
-    Route::get('/medicine', 'Api\\MedicineController@findFilter');
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'cid'
+    ], function () {
+        Route::post('', 'Api\\CidController@insert');
+        Route::get('', 'Api\\CidController@findFilter');
+    });
 
-    Route::get('/user', 'Api\\UserController@findFilter');
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'medicine'
+    ], function () {
+        Route::post('', 'Api\\MedicineController@insert');
+        Route::get('', 'Api\\MedicineController@findFilter');
+    });
+
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'user'
+    ], function () {
+        Route::post('', 'Api\\UserController@insert');
+        Route::get('', 'Api\\UserController@findFilter');
+    });
+
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'discipline'
+    ], function () {
+        Route::post('', 'Api\\DisciplineController@insert');
+        Route::get('', 'Api\\DisciplineController@findFilter');
+    });
+
+    Route::group([
+        'middleware' => 'api',
+        'prefix' => 'evaluation'
+    ], function () {
+        Route::post('', 'Api\\EvaluationController@insert');
+        Route::get('', 'Api\\EvaluationController@findFilter');
+    });
 });
 
 Route::group([

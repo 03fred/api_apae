@@ -5,9 +5,6 @@ namespace App\Service;
 use App\Interfaces\Service\UserServiceInterface;
 use App\Model\Users;
 use App\Interfaces\Repository\UserRepositoryInterface;
-use App\Interfaces\Service\CidServiceInterface;
-use App\Interfaces\Service\MedicineServiceInterface;
-use Model\CidsStudents;
 use stdClass;
 
 class UserServiceImpl implements UserServiceInterface
@@ -29,11 +26,7 @@ class UserServiceImpl implements UserServiceInterface
         $user->birth = $data->birth;
         $user->telephone = $data->telephone;
         $user->cellphone = $data->cellphone;
-        $codUser = $this->repository->save($user);
-
-        $cidStudent = new CidsStudents();
-        $cidStudent->student_id = $codUser;
-        $cidStudent->cid_id = $data->cid;
+        $this->repository->save($user);
     }
 
     public function findFilter($field, $value, $page)

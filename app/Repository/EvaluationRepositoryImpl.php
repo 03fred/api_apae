@@ -2,19 +2,20 @@
 
 namespace App\Repository;
 
-use App\Model\Cids;
-use App\Interfaces\Repository\CidRepositoryInterface;
+use App\Interfaces\Repository\EvaluationRepositoryInterface;
+use App\Model\Evaluations;
 
-class CidRepositoryImpl implements CidRepositoryInterface
+class EvaluationRepositoryImpl implements EvaluationRepositoryInterface
 {
+
     private $model;
 
-    public function __construct(Cids $model)
+    public function __construct(Evaluations $model)
     {
         $this->model = $model;
     }
 
-    public function save(Cids $model)
+    public function save(Evaluations $model)
     {
         return $model->save();
     }
@@ -27,11 +28,5 @@ class CidRepositoryImpl implements CidRepositoryInterface
     public function findById($id)
     {
         return $this->model->where('id', '=', $id)->first();
-    }
-
-    public function inativeCid($id)
-    {
-        return $this->model->where('id', $id)
-            ->update(['register' => false]);
     }
 }
