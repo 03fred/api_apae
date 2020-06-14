@@ -29,4 +29,9 @@ class CidServiceImpl implements CidServiceInterface
     {
         return $this->repository->findFilter($field, $value, $page);
     }
+
+    public function findAll()
+    {
+        return $this->repository->findAll();
+    }
 }

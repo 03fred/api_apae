@@ -29,9 +29,8 @@ class CidRepositoryImpl implements CidRepositoryInterface
         return $this->model->where('id', '=', $id)->first();
     }
 
-    public function inativeCid($id)
+    public function findAll()
     {
-        return $this->model->where('id', $id)
-            ->update(['register' => false]);
+        return $this->model->all();
     }
 }

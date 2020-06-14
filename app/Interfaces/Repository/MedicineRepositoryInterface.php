@@ -9,4 +9,6 @@ interface MedicineRepositoryInterface
     public function save(Medicines $model);
 
     public function findFilter($field, $value, $page);
+
+    public function findAll();
 }

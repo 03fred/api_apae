@@ -28,7 +28,17 @@ class CidController extends Controller
 
         $data = $this->service->findFilter($field, $value, $page);
 
-         return response()->json($data);
+        return response()->json($data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function findAll(Request $request)
+    {
+        return response()->json(array('data' => $this->service->findAll()));
     }
 
     /**

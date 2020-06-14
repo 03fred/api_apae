@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['apiJwt']], function () {
@@ -19,6 +18,7 @@ Route::group(['middleware' => ['apiJwt']], function () {
     ], function () {
         Route::post('', 'Api\\CidController@insert');
         Route::get('', 'Api\\CidController@findFilter');
+        Route::get('/student', 'Api\\CidController@findAll');
     });
 
     Route::group([
@@ -27,6 +27,7 @@ Route::group(['middleware' => ['apiJwt']], function () {
     ], function () {
         Route::post('', 'Api\\MedicineController@insert');
         Route::get('', 'Api\\MedicineController@findFilter');
+        Route::get('/student', 'Api\\MedicineController@findAll');
     });
 
     Route::group([
@@ -55,7 +56,6 @@ Route::group(['middleware' => ['apiJwt']], function () {
 });
 
 Route::group([
-
     'middleware' => 'api',
     'prefix' => 'auth'
 

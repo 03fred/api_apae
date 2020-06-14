@@ -30,9 +30,8 @@ class MedicineRepositoryImpl implements MedicineRepositoryInterface
         return $this->model->where('id', '=', $id)->first();
     }
 
-    public function inativeMedicine($id)
+    public function findAll()
     {
-        return $this->model->where('id', $id)
-            ->update(['register' => false]);
+        return $this->model->all();
     }
 }
