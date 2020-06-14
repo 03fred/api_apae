@@ -72,6 +72,6 @@ class StudentServiceImpl implements StudentServiceInterface
 
     public function findFilter($field, $value, $page)
     {
-        return $this->repository->findFilter($field, $value, $page);
+        return $this->repository->findFilter($field, $value, $page * MAX_PER_PAGE);
     }
 }
