@@ -31,19 +31,21 @@ class StudentServiceImpl implements StudentServiceInterface
     public function save(stdClass $data)
     {
         $student = new Students();
-        $student->name = $data->name;
-        $student->birth = $data->birth;
-        $student->mother_name = $data->nameMother;
-        $student->father_name = $data->nameFather;
-        $student->cellphone = $data->cellPhone;
-        $student->telephone = $data->phone;
-        $student->sus_numer = $data->numberSus;
+        $student->name = $data->student['name'];
+        $student->birth = $data->student['birth'];
+        $student->mother_name = $data->student['nameMother'];
+        $student->father_name = $data->student['nameFather'];
+        $student->cellphone = $data->student['cellPhone'];
+        $student->telephone = $data->student['phone'];
+        $student->sus_numer = $data->student['numberSus'];
         $student->registered = true;
-        $student->address = $data->address;
-        $student->record_number = $data->recordNumber;
+        $student->address = $data->student['address'];
         $codUser = $this->repository->save($student);
 
+        if(isset($data->cid) && count($data->cid) > 0)
         $this->saveStudentCid($data->cid, $codUser);
+
+        if(isset($data->medicine) && count($data->medicine) > 0)
         $this->saveStudentMedicine($data->medicine, $codUser);
     }
 
@@ -51,7 +53,7 @@ class StudentServiceImpl implements StudentServiceInterface
     {
         foreach ($cids as $cid) {
             $cidStudent = new CidsStudents();
-            $cidStudent->cid_id = $cid;
+            $cidStudent->cid_id = $cid["id"];
             $cidStudent->student_id = $codUser;
             $this->cidStudentService->save($cidStudent);
         }

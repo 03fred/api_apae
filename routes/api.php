@@ -25,6 +25,7 @@ Route::group(['middleware' => ['apiJwt']], function () {
 
     Route::post('/cid', 'Api\\CidController@insert');
     Route::get('/cid', 'Api\\CidController@findFilter');
+    Route::get('/cid-student', 'Api\\CidController@findAll');
 
     Route::post('/medicine', 'Api\\MedicineController@insert');
     Route::get('/medicine', 'Api\\MedicineController@findFilter');

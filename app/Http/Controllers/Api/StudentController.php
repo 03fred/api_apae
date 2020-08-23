@@ -42,14 +42,14 @@ class StudentController extends Controller
     {
 
         $fieldValidations = $this->returnValidation();
+    
+        $data = (object) $request->all();
 
-        $validator = Validator::make($request->all(), $fieldValidations, Helpers::returnMessageFieldValidation());
+        $validator = Validator::make($data->student, $fieldValidations, Helpers::returnMessageFieldValidation());
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
-        }
-
-        $data = (object) $request->all();
+        }        
 
         $this->service->save($data);
 
@@ -100,9 +100,6 @@ class StudentController extends Controller
             'address' => 'required|max:255',
             'cellPhone' => 'required|max:15',
             'numberSus' => 'required|max:255',
-            'recordNumber' => 'required|max:10',
-            'cid' => 'required',
-            'medicine' => 'required'
         ];
     }
 }

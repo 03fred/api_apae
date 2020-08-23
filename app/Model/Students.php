@@ -45,7 +45,6 @@ class Students extends Model
         'cellphone',
         'telephone',
         'sus_numer',
-        'record_number',
         'registered',
         'created_at',
         'updated_at'

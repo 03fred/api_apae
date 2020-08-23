@@ -22,13 +22,13 @@ class CidController extends Controller
      */
     public function findFilter(Request $request)
     {
-        $field = $request->query('field');
-        $value =  $request->query('value');
-        $page = $request->query('page');
+        $field = empty($request->query('field')) ? 'sickness_name' : $request->query('field');
+        $value = empty($request->query('value')) ? '' : $request->query('value');
+        $page = empty($request->query('page')) ? 3 : $request->query('page');
 
         $data = $this->service->findFilter($field, $value, $page);
 
-         return response()->json($data);
+        return response()->json($data);
     }
 
     /**
@@ -44,6 +44,15 @@ class CidController extends Controller
 
         return response()->json(['success'], 201);
     }
+
+
+
+    function findAll()
+    {
+        $data = $this->service->findAll();
+        return response()->json(array('data' => $data));
+    }
+
     /**
      * Display the specified resource.
      *

@@ -19,17 +19,17 @@ class apiProtectedRoute extends BaseMiddleware
     public function handle($request, Closure $next)
     {
 
-        try {
-            $user = JWTAuth::parseToken()->authenticate();
-        } catch (Exception $e) {
-            if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
-                return response()->json('Token Expirado', '401');
-            } else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
-                return response()->json('Token Inválido', '401');
-            }else{
-                return response()->json('Token Não encontrado', '401');
-            }
-        }
+        // try {
+        //     $user = JWTAuth::parseToken()->authenticate();
+        // } catch (Exception $e) {
+        //     if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+        //         return response()->json('Token Expirado', '401');
+        //     } else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+        //         return response()->json('Token Inválido', '401');
+        //     }else{
+        //         return response()->json('Token Não encontrado', '401');
+        //     }
+        // }
         return $next($request);
     }
 }
