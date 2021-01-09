@@ -31,9 +31,9 @@ class UserServiceImpl implements UserServiceInterface
         $user->cellphone = $data->cellphone;
         $codUser = $this->repository->save($user);
 
-        $cidStudent = new CidsStudents();
-        $cidStudent->student_id = $codUser;
-        $cidStudent->cid_id = $data->cid;
+        // $cidStudent = new CidsStudents();
+        // $cidStudent->student_id = $codUser;
+        // $cidStudent->cid_id = $data->cid;
     }
 
     public function findFilter($field, $value, $page)
