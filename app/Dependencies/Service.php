@@ -20,6 +20,7 @@ class Service extends ServiceProvider
         $this->app->bind('App\Interfaces\Service\TeacherDisciplineServiceInterface', 'App\Service\TeacherDisciplineServiceImpl');
         $this->app->bind('App\Interfaces\Service\StudentClassServiceInterface', 'App\Service\StudentClassServiceImpl');
         $this->app->bind('App\Interfaces\Service\EvaluationServiceInterface', 'App\Service\EvaluationServiceImpl');
+        $this->app->bind('App\Interfaces\Service\FrequencyServiceInterface', 'App\Service\FrequencyServiceImpl');
 
     }
 }

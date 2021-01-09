@@ -20,6 +20,7 @@ class Repository extends ServiceProvider
         $this->app->bind('App\Interfaces\Repository\TeacherDisciplineRepositoryInterface', 'App\Repository\TeacherDisciplineRepositoryImpl');
         $this->app->bind('App\Interfaces\Repository\StudentClassRepositoryInterface', 'App\Repository\StudentClassRepositoryImpl');
         $this->app->bind('App\Interfaces\Repository\EvaluationRepositoryInterface', 'App\Repository\EvaluationRepositoryImpl');
+        $this->app->bind('App\Interfaces\Repository\FrequencyRepositoryInterface', 'App\Repository\FrequencyRepositoryImpl');
 
     }
 }
