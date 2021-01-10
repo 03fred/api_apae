@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['apiJwt']], function () {
     Route::post('/student', 'Api\\StudentController@insert');
+    Route::put('/student', 'Api\\StudentController@update');
     Route::get('/student', 'Api\\StudentController@findFilter');
 
     Route::post('/cid', 'Api\\CidController@insert');

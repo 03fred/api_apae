@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Model\Students;
 use App\Interfaces\Repository\StudentRepositoryInterface;
+use stdClass;
 
 class StudentRepositoryImpl implements StudentRepositoryInterface
 {
@@ -34,5 +35,16 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
     {
         return $this->model->where('id', $id)
             ->update(['register' => false]);
+    }
+
+    public function update(stdClass $dados)
+    {
+        return $this->model->where('id', $dados->id)
+            ->update([
+                'address' => $dados->address,
+                'cellphone' => $dados->cellphone,
+                'telephone' => $dados->telephone,
+                'sus_number' => $dados->sus_number,
+            ]);
     }
 }

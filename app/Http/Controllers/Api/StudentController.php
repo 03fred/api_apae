@@ -74,9 +74,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data = (object) $request->all();
+        $this->service->update($data);
+        return response()->json(['success'], 204);
     }
 
     /**

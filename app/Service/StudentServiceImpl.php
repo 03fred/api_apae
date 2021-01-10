@@ -37,16 +37,21 @@ class StudentServiceImpl implements StudentServiceInterface
         $student->father_name = $data->student['nameFather'];
         $student->cellphone = $data->student['cellPhone'];
         $student->telephone = $data->student['phone'];
-        $student->sus_numer = $data->student['numberSus'];
+        $student->sus_number = $data->student['numberSus'];
         $student->registered = true;
         $student->address = $data->student['address'];
         $codUser = $this->repository->save($student);
 
-        if(isset($data->cid) && count($data->cid) > 0)
-        $this->saveStudentCid($data->cid, $codUser);
+        if (isset($data->cid) && count($data->cid) > 0)
+            $this->saveStudentCid($data->cid, $codUser);
 
-        if(isset($data->medicine) && count($data->medicine) > 0)
-        $this->saveStudentMedicine($data->medicine, $codUser);
+        if (isset($data->medicine) && count($data->medicine) > 0)
+            $this->saveStudentMedicine($data->medicine, $codUser);
+    }
+
+    public function update(stdClass $dados)
+    {
+        $this->repository->update($dados);
     }
 
     private function saveStudentCid(array $cids, int $codUser)

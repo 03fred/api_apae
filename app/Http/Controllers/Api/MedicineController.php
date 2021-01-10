@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Service\MedicineServiceInterface;
 use Illuminate\Http\Request;
 
 class MedicineController extends Controller
 {
+    private $service;
+
+    public function __construct(MedicineServiceInterface $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *

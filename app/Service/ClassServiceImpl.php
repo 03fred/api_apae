@@ -22,9 +22,9 @@ class ClassServiceImpl implements ClassServiceInterface
         $model = new Classes();
         $model->classroom = $data->classroom;
         $model->name = $data->name;
-        $model->start = $data->start;
-        $model->end = $data->end;
-        $model->period = $data->period;
+        $model->start =  array_reverse(explode('/', $data->start))[0];
+        $model->end = array_reverse(explode('/', $data->end))[0];
+        $model->period = $data->period['id'];
         $this->repository->save($model);
     }
 

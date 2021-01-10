@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $address
  * @property string $cellphone
  * @property string $telephone
- * @property string $sus_numer
+ * @property string $sus_number
  * @property string $record_number
  * @property boolean $registered
  * @property string $created_at
@@ -44,7 +44,7 @@ class Students extends Model
         'address',
         'cellphone',
         'telephone',
-        'sus_numer',
+        'sus_number',
         'registered',
         'created_at',
         'updated_at'

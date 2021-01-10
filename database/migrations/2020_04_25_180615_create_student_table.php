@@ -27,7 +27,7 @@ class CreateStudentTable extends Migration
             $table->string('cellphone');
             $table->string('telephone');
 
-            $table->string('sus_numer');
+            $table->string('sus_number');
             $table->string('record_number');
 
             $table->boolean('registered');
