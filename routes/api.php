@@ -31,6 +31,18 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::get('/medicine', 'Api\\MedicineController@findFilter');
 
     Route::get('/user', 'Api\\UserController@findFilter');
+    
+    Route::post('/discipline', 'Api\\DisciplineController@insert');
+    
+    Route::post('/class', 'Api\\ClassController@insert');
+
+    Route::post('/teacher-discipline', 'Api\\TeacherDisciplineController@insert');
+
+    Route::post('/student-class', 'Api\\StudentClassController@insert');
+    
+    Route::post('/evaluation', 'Api\\EvaluationController@insert');
+
+    Route::post('/frequency', 'Api\\FrequencyController@insert');
 });
 
 Route::group([

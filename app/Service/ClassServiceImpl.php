@@ -24,6 +24,7 @@ class ClassServiceImpl implements ClassServiceInterface
         $model->name = $data->name;
         $model->start = $data->start;
         $model->end = $data->end;
+        $model->period = $data->period;
         $this->repository->save($model);
     }
 
