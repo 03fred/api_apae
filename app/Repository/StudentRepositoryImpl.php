@@ -47,4 +47,10 @@ class StudentRepositoryImpl implements StudentRepositoryInterface
                 'sus_number' => $dados->sus_number,
             ]);
     }
+
+    public function delete(int $student_id)
+    {
+        return $this->model->where('id', $student_id)
+            ->delete();
+    }
 }

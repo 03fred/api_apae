@@ -76,9 +76,13 @@ class StudentServiceImpl implements StudentServiceInterface
         }
     }
 
-
     public function findFilter($field, $value, $page)
     {
         return $this->repository->findFilter($field, $value, $page);
+    }
+
+    public function delete(int $student_id)
+    {
+        return $this->repository->delete($student_id);
     }
 }

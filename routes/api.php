@@ -23,6 +23,7 @@ Route::group(['middleware' => ['apiJwt']], function () {
     Route::post('/student', 'Api\\StudentController@insert');
     Route::put('/student', 'Api\\StudentController@update');
     Route::get('/student', 'Api\\StudentController@findFilter');
+    Route::delete('/student/{id}', 'Api\\StudentController@destroy');
 
     Route::post('/cid', 'Api\\CidController@insert');
     Route::get('/cid', 'Api\\CidController@findFilter');

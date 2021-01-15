@@ -42,14 +42,14 @@ class StudentController extends Controller
     {
 
         $fieldValidations = $this->returnValidation();
-    
+
         $data = (object) $request->all();
 
         $validator = Validator::make($data->student, $fieldValidations, Helpers::returnMessageFieldValidation());
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 400);
-        }        
+        }
 
         $this->service->save($data);
 
@@ -89,7 +89,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->service->delete((int)$id);
+        return response()->json(['success'], 204);
     }
 
     private function returnValidation(): array
